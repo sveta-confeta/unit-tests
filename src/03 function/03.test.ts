@@ -31,30 +31,30 @@ beforeEach(()=>{
     };
 })
 
-
+//----1 function---
 test("new tech skill should be added to student", ()=>{
     expect(student.technologies.length).toBe(3);//длина до вызова функции-3
 
-    addSkill(student,'JS'); //вызов функции который что то добавляет
+    addSkill(student,'JS'); //вызов функции который что то добавляет(добавляет в title 'js'
 
     expect(student.technologies.length).toBe(4);//длина после  вызова функции-4
     expect(student.technologies[3].title).toBe('JS');
     expect(student.technologies[3].id).toBeDefined();//id определено,какое неважно
 
 })
-
+//----2 function---
 //напишем еще один тест:
 test("student should be made active", ()=>{
     expect(student.isActive).toBe(false);//до вызова функции был false
 
-    makeStudentActive(student); // функция
+    makeStudentActive(student); // функция вызывается
 
 
     expect(student.isActive).toBe(true);//после вызова функции стал true
 
 
 })
-//напишем еще один тест:
+//напишем еще один 3 тест: //выясним, живет ли студент в минске
 test("does student lives is city?", ()=>{
 
 
