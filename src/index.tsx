@@ -7,8 +7,7 @@ import {User, UserText} from "./06 callback/Callback";
 
 ReactDOM.render(
   <React.StrictMode>
-    <User />
-      <UserText/>
+  <App/>
   </React.StrictMode>,
   document.getElementById('root')
 );
