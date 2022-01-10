@@ -31,4 +31,13 @@ export function moveUser(u:UserWithLaptopType,city:string) {
     return copymoveUser
 
 }
+//функция для 3го теста:
+
+export function upgradeUserLaptop(u:UserWithLaptopType,brend:string) {
+
+     return {...u,laptop:{...u.laptop,title:brend}};
+
+
+
+}
 

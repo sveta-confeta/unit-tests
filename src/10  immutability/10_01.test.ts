@@ -1,6 +1,7 @@
 import {UserType, UserWithLaptopType} from "./10_01";
 import {hairdresser} from "./10_01";
 import {moveUser} from "./10_01";
+import {upgradeUserLaptop} from "./10_01";
 
 
 // 1 test:
@@ -40,8 +41,8 @@ test('change address',()=>{
 })
 
 
-//2 test: изменяем обьект в обьекте более глубокой вложенности
-test('change address',()=>{
+//3 test: изменяем обьект в обьекте более глубокой вложенности
+test('upgrade to macbook',()=>{
     let user:UserWithLaptopType={
         name:'Dimych',
         hair: 32,
@@ -49,13 +50,13 @@ test('change address',()=>{
             title:'Minsk'
         },
         laptop:{
-            title:'ZenBook'
-        }
+            title:'Zenbook'
+        },
     }
-    const movedUser= moveUser(user,'Kiev');
+    const brendUser= upgradeUserLaptop(user,'Macbook');
 
-    expect(user).not.toBe(movedUser); //должны быть два разных обьекта
-    expect(user.address).not.toBe(movedUser.address); //не должны быть равны, потому что мы сделаем копию и потом изменим эти данные
-    expect(movedUser.address).toBe('Kiev');//а этот обьект не должен менятся
-    expect(user.laptop).toBe(movedUser.laptop);//мы не делали копий и не изменяли его
+    expect(user).not.toBe(brendUser); //должны быть два разных обьекта
+    expect(user.laptop).not.toBe(brendUser.laptop); //не должны быть равны, потому что мы сделаем копию и потом изменим эти данные
+    expect(user.laptop.title).toBe('Zenbook');//а этот обьект не должен менятся
+    expect(user.address).toBe(brendUser.address);//мы не делали копий и не изменяли его
 })
