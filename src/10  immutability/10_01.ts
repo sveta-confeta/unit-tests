@@ -15,10 +15,20 @@ export type UserWithLaptopType=UserType & {
   //функция для 1 теста:
 export function hairdresser(u:UserType,power:number) {
     let copy={
-        ...u,hair:u.hair/power;
+        ...u,hair:u.hair/power
     }
     // copy.hair=copy.hair/power
     return copy
+
+}
+
+//функция для 2го теста:
+
+export function moveUser(u:UserWithLaptopType,city:string) {
+    let copymoveUser=
+        {...u,...u.address,address: u.address.title=city};
+
+    return copymoveUser
 
 }
 
