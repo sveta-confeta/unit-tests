@@ -1,7 +1,7 @@
 export type UserType={
     name:string
     hair:number
-    address:{title:string}
+    address:{title:string,house?:number}
 }
 
 export type LaptopType={
@@ -10,6 +10,10 @@ export type LaptopType={
 export type UserWithLaptopType=UserType & {
     laptop:LaptopType
 }
+export type UserWithBooksType=UserType & {
+    books:Array<string>
+}
+
 
 
   //функция для 1 теста:
@@ -31,13 +35,29 @@ export function moveUser(u:UserWithLaptopType,city:string) {
     return copymoveUser
 
 }
+
+
 //функция для 3го теста:
 
 export function upgradeUserLaptop(u:UserWithLaptopType,brend:string) {
 
      return {...u,laptop:{...u.laptop,title:brend}};
 
+}
+//функция для 4го теста:
+export function moveUserToOtherHause(u:UserWithLaptopType & UserWithBooksType,house:number) {
+    return {...u,address:{ ...u.address, house:house }};
+}
 
+//функция для 5го теста:
+export function addNewBook(u:UserWithLaptopType & UserWithBooksType,book:Array<string>) {
+    return {...u,books:[ ...u.books, ...book] };
+
+}
+
+//функция для 6го теста:
+export function upgradeBook(u:UserWithLaptopType & UserWithBooksType,oldbook:string, newbook:string) {
+    return {...u,books:u.books.map(m=>m===oldbook ? newbook : m) };
 
 }
 
